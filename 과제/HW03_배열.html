@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>텍스트 추가/검색</title>
+    <style>
+    #result { 
+      border : 1px solid blue;
+      width : 300px; 
+      height : 200px; 
+    }
+    </style>
+    <script>
+    let txtArr = [];
+    window.onload = function(){
+      btnAdd.addEventListener("click",funcAdd)
+      btnDelete.addEventListener("click",funcDelete)
+      btnSearch.addEventListener("click",funcSearch)
+      txtFruit.addEventListener("focus", function(){this.select();})
+    }
+    function funcAdd(){
+      //  텍스트필드에 입력한 값을 배열에 추가하고 배열을 div에 출력
+      //  코드 작성
+      if(txtFruit.value === "") {
+        alert("값이 없습니다.");
+        return;
+      }
+      txtArr.push(txtFruit.value);
+      result.innerText = txtArr.toString();
+      txtFruit.value = '';
+    }
+    function funcDelete(){
+      //  텍스트필드에 입력한 값을 배열에서 삭제하고 배열을 div에 출력
+      //  코드 작성
+      if(txtArr.length === 0) {
+        alert("삭제 할 값이 없습니다.");
+        return;
+      }
+      txtArr.pop(txtFruit.value);
+      result.innerText = txtArr.toString();
+      txtFruit.value = '';
+    }
+    function funcSearch(){
+      //  텍스트필드에 입력한 값을 배열에서 검색해서 검색위치를 div출력
+      //  코드 작성
+      // let ray = txtArr.indexOf(txtFruit.value) + 1;
+      // result.innerHTML += `<br>검색위치 : ${ray}`
+
+      if(txtArr.indexOf(txtFruit.value) >= 0) {
+        result.innerHTML += `<br>'${txtFruit.value}'의 검색위치 : ${txtArr.indexOf(txtFruit.value) + 1}에 위치해 있습니다.`;
+      } else {
+        result.innerHTML += `<br>'${txtFruit.value}'의 검색위치 : 검색결과 없음`;
+      }
+    }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="txtFruit">
+    <button type="button" id="btnAdd">추가</button>
+    <button type="button" id="btnDelete">삭제</button>
+    <button type="button" id="btnSearch">검색</button>
+    <div id="result">
+
+    </div>
+  </body>
+</html>

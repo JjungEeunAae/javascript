@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for4.html</title>
+</head>
+<body>
+<table border="1">
+  <tr>
+    <td>1</td>
+    <td>2</td>
+    <td>3</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>5</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>8</td>
+    <td>9</td>
+  </tr>
+</table>
+  <script>
+    //테이블 전체 성적의 합계
+    let td = document.querySelectorAll("td"); //[1,2,3 ...]
+    let sum = 0; //합계
+    debugger
+    for(let i = 0; i < td.length; i++){
+      sum = sum + td[i].innerText * 1; //*1 = parseInt(td[i].innerText), sum(0) + 문자열.innerText(값을 문자열로),*1(숫자로변환)
+    }
+    console.log('전체합계=',sum)
+
+
+  </script>
+</body>
+</html>

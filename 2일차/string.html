@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>string.html</title>
+</head>
+<body>
+  <input type="text" value="">
+  <input type="text" value="">
+  <input type="text" value="">
+
+  <script>
+    let tel = '010-0000-0220' ;
+    let telArr = tel.split('-')
+
+    console.log(telArr)
+
+    
+    for(let i = 0 ; i < telArr.length ; i++){
+    document.querySelectorAll("input")[i].value = telArr[i]
+  }
+
+  
+  </script>
+</body>
+</html>

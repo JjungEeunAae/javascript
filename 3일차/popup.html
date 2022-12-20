@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>popup.html</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="btnSelect">선택</button>
+  <button id="btnClose">닫기</button>
+  <button id="btnPage">부모창페이지이동</button>
+
+  <script>
+    //부모자식간에 데이터를 어떻게 주고 받는가?
+
+    btnSelect.onclick = function(){
+      //텍스트필드의 입력값을 부모창에 div#x 에 출력
+      opener.document.querySelector("#x").innerHTML = txt.value //txt.value = input의 입력값
+    }
+
+    btnClose.onclick = function(){
+      //팝업창 닫기 : window, self
+      window.close();
+    }
+
+    btnPage.onclick = function(){
+      //부모창의 location 이동 : location.assign()이용
+      opener.location.assign(txt.value); //location 본인창에서 이동 , opener.location 부모창에서 이동
+    }
+  </script>
+</body>
+</html>

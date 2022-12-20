@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*나머지 연산*/
+    let num = prompt().split(" "); //문자열을 구분기호로 분리(split)해서 배열에 저장
+    let A = num[0] * 1;   // 5
+    let B = num[1] * 1;   // 8
+    let C = num[2] * 1;   // 4
+    
+    console.log((A + B) % C);
+    console.log(((A % C) + (B % C)) % C);
+    console.log((A * B) % C);
+    console.log(((A % C) * (B % C)) % C);
+  </script>
+</body>
+</html>

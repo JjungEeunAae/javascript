@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2525</title>
+</head>
+<body>
+  <script>
+    /*필요한 시간이 분단위로 주어졌을 때, 
+      오븐구이가 끝나는 시각을 계산하는 프로그램을 작성
+    */
+    
+    //첫째 줄에 종료되는 시각의 시와 분을 공백을 사이에 두고 출력한다.
+    let deta = prompt().split(' ');
+    //첫째 줄에는 현재 시각이 나온다. 
+    let a = parseInt(deta[0]); //시간
+    //현재 시각은 시 A (0 ≤ A ≤ 23) 와 분 B (0 ≤ B ≤ 59)가 정수로 빈칸을 사이에 두고 순서대로 주어진다.
+    let b = parseInt(deta[1]); //분
+    //두 번째 줄에는 요리하는 데 필요한 시간 C (0 ≤ C ≤ 1,000)가 분 단위로 주어진다.
+    let c = parseInt(deta[2]); //더할 분
+
+    //단, 시는 0부터 23까지의 정수, 분은 0부터 59까지의 정수이다.
+    //Math.floor = 입력받은 숫자보다 작거나 같은 정수 중 가장 큰 정수로 리턴
+    let H = Math.floor((a * 60 + b + c) / 60); //(a*60)은 시간을 분으로 계산하기 위함
+    let M = (a * 60 + b + c) % 60;
+
+    //디지털 시계는 23시 59분에서 1분이 지나면 0시 0분이 된다.)
+    if(H >= 24) {
+      H = H - 24;
+    }
+
+    console.log(`${H} ${M}`);
+
+
+  </script>
+</body> 
+</html>

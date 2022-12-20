@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array_sum.html</title>
+</head>
+<body>
+  <script>
+    let score = [100,90,100,80,100,100,100,100]; //0 ~5
+    let total = array_sum(score); //괄호 안에 있는건 파라미터
+    alert(total)
+
+    // alert([10,9,10,8,10,10])
+
+    function array_sum(s){ //매개변수 score 값은 함수 내 파라미터 변수명
+      let sum = 0;
+      for(let i = 0 ; i < s.length ; i++){
+        sum += s[i] 
+      }
+      return sum;
+    }
+
+  
+
+  </script>
+</body>
+</html>

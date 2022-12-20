@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let date  = prompt().split(" "); // '1 2'를 입력할 때 '1','2'(문자열)로 반환
+    let month = parseInt(date[0]);
+    let day   = parseInt(date[1]);
+    
+    let m     = [31,28,31,30,31,30,31,31,30,31,30,31]; //1~12월 마지막 일
+    let week  = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"];
+    let m_sum = 0;
+
+    // 입력 받은 month 값을 일수로 변환
+    for(let i = 0; i < month - 1; i++){
+        m_sum += m[i];
+    }
+
+    if((m_sum + day) % 7 - 1 > 0){
+        console.log(week[(m_sum + day) % 7 - 1]);
+    } else {
+      console.log(week[6]);
+    };
+    </script>
+</body>
+</html>
+<!-- // let number = "1";
+// console.log(`Number : ${number} / 타입 : ${typeof number}`);
+// console.log(`Number : ${Number(number)} / 타입 : ${typeof Number(number)}`);
+// console.log(`Number : ${parseInt(number)} / 타입 : ${typeof parseInt(number)}`);
+// const week1 = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+// console.log(new Date(`2007-04-23`).getDay());
+// console.log(week1[new Date(`2007-04-22`).getDay()]); -->

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>for_sun.html</title>
+</head>
+<body>
+  <script>
+    /*1부터 10까지의 합을 계산하는 프로그램 작성*/
+
+    //합계를 저장할 변수 선언하고 0으로 초기화
+    let sum = 0; //undefiend
+
+    //1 ~ 10까지 반복
+
+    for(let i = 0 ; i < 11 ; i++ ){  //
+    //합계변수에 수를 더함
+    sum += i;                        //sum = sum + i(i는 1씩 증강)
+  }
+
+    //합계 출력
+    console.log(sum)
+    
+    sum = 0;
+    //100까지의 합을 계산
+    for( let i = 0 ; i < 101 ; i++ ){
+      sum += i ;
+    }
+
+    //합계 출력
+    console.log(sum)
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>array.html</title>
+</head>
+<body>
+  <input id="txt">
+  <button id="addBtn" >추가</button>
+  <button id="delBtn">삭제</button>
+  <div id="result"></div>
+<script>
+  let fruit = new Array();    //[]
+
+  addBtn.onclick = function(){
+    fruit.push(txt.value);
+    result.innerText = fruit.toString();
+    txt.value = ''; //input 안에 값을 입력한 후 추가버튼 누르면 값을 지워줌
+  }
+
+  //삭제버튼을 클릭하면 배열의 마지막 요소를 지우고(.pop) div전에 출력(innerText)
+  //첫번째 요소 지우기(.shift)
+  delBtn.onclick = function(){
+    let idx = fruit.indexOf(txt.value);
+    if(idx >= 0){
+    let el = fruit.splice(idx,1);
+    result.innerText = fruit.toString();
+    txt.value = '';
+  }
+  }  
+</script>
+</body>
+</html>

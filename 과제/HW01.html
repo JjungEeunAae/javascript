@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>문자열자르기</title>
+  <style>
+    label {
+      display: inline-block;
+      width: 70px;
+      text-align:
+      right;
+    }
+    #btn {
+      width : 250px;
+    }
+    </style>
+    <script>
+      window.addEventListener("load", function(){
+        btnEvent();
+      });
+      
+      function btnEvent(){
+        btn.addEventListener("click", function(){
+          //코드 작성
+          let select = result.value.split(",");
+          // document.querySelectorAll("input")[0].value = select[0];
+          // document.querySelectorAll("input")[1].value = select[1];
+          // document.querySelectorAll("input")[2].value = select[2];
+          // document.querySelectorAll("input")[3].value = select[3];
+          for(let i = 0; i < select.length; i++) {
+            document.querySelectorAll("input")[i].value = select[i];
+          }
+
+          // document.querySelectorAll("input").forEach(function(item, index) {
+          //   item.value = select[index];
+          // });
+        });
+      }
+      </script>
+</head>
+<body>
+  <textarea id="result" rows="3" cols="35">1, 홍길동, hong, 2019/12/01</textarea>
+  <div><button id="btn">텍스트필드에 값 넣기</button></div>
+    <label>
+      번호
+    </label>
+    <input name="no" type="text">
+  </div>
+  <div><label>이름</label><input name="name" type="text"></div>
+  <div><label>아디</label><input name="id" type="text"></div>
+  <div><label>등록일자</label><input name="regDate" type="text"></div>
+</body>
+</html>

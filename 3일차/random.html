@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>random.html</title>
+</head>
+<body>
+  <img src="./img/강아지.jpg" id="img">
+  <script>
+    let imgArr = new Array();
+    imgArr.push("./img/강아지2.jpg");
+    imgArr.push("./img/강아지3.jpg");
+    imgArr.push("./img/강아지4.jpg");
+    imgArr.push("./img/레드향.jpg");
+    imgArr.push("./img/카메라.jpg");
+    
+    //배열의 크기(length)만큼 랜덤으로 이미지를 보이게
+    let num = Math.floor(Math.random()*imgArr.length);
+    console.log(num);
+    img.src = imgArr[num];
+
+    //0~0.9999 랜덤값 * 10(0~10까지의 랜덤수가 나옴)
+    //0~9.9999 + Math.floo(소수점버림) = 0.9 + 1 = 10.0
+    // let num = Math.floor(Math.random()*10)+1;
+    // console.log(num);
+
+  </script>
+</body>
+</html>

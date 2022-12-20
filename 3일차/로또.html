@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>lotto.html</title>
+</head>
+<body>
+  <script>
+    /*로또번호 생성기
+      번호 6개 생성해서 배열에 저장 1~45*/
+    let arr = new Array();
+
+    for(let i = 0 ; i < 6 ; i++){
+      //1~45 사이의 난수 생성
+      let num = Math.floor(Math.random()*45)+1;
+      //num을 검사해서 같은 값이 있으면 다시 만들기
+      if(arr.indexOf(num)<0){ //1~45 숫자 중 랜덤으로(num) arr 배열에서 문자의 위치를 찾은게 중복 값이면
+        arr.push(num) //arr 배열에 1~45의 랜덤값(num)을 새로운 값을 추가한다
+      } else{i--;}    // 아닐시 i값 1 감소
+      //난수를 배열에 추가
+    }
+    
+    // arr.push(num);
+    console.log( arr.sort( (a,b) => a-b ) ); //그냥 arr 찍으면 String 나옴
+
+
+
+
+  </script>
+</body>
+</html>

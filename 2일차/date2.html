@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date2.html</title>
+</head>
+<body>
+  날짜 <input value="2022"><input value="12"><input value="16">
+        <input value="100">
+      <button id="btn">계산</button>
+
+  <script>
+    btn.onclick = function(){
+      //input 태그의 값 읽기
+      let year = parseInt(document.querySelectorAll("input")[0].value);
+      let month = parseInt(document.querySelectorAll("input")[1].value);
+      let day = parseInt(document.querySelectorAll("input")[2].value);
+      let add = parseInt(document.querySelectorAll("input")[3].value);
+
+      
+      //날짜 객체 생성 + 100  //월 12 -> 11
+      let next100 = new Date(year, month-1, day+add);
+    
+      //날짜된 날짜를 출력
+      alert(next100.getFullYear() + "/" + parseInt(next100.getMonth()+1) + "/" + next100.getDate());
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date.html</title>
+</head>
+<body>
+  <div id="result"></div>
+  <script>
+  let now = new Date();
+  let day = new Date("2022-10-01");
+  
+  //현재 시각에서 day까지의 경과일 알아보기
+  let passTime = now.getTime() - day.getTime();
+  result.innerHTML = Math.round(passTime/1000/60/60/24)  + '<br>'; //경과시간(시) //소수점 이하 부분 반올림
+  result.innerText += Math.round(passTime/1000/60/60); //경과시간(분) //소수점 이하 부분 반올림
+
+  //2023-05-31 수료일이 얼마 남았는지 계산해보기
+  
+
+  </script>
+</body>
+</html>

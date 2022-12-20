@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>date.html</title>
+</head>
+<body>
+  <script>
+  /*
+  날짜 객체
+  객체 = 데이터(변수) + 메서드(함수) 묶어둔 것
+  */
+  let today = new Date(); //객체 생성
+
+  console.log(today.getTime()); 
+  console.log(today.getDay())  
+  console.log(today.getDate())
+  console.log(today.getFullYear())
+  console.log(today.getMonth())
+  console.log(today.getHours())
+  
+
+
+//7일뒤
+  let to7 = new Date(today.getTime() + 7*24*60*60*1000);
+  console.log('7일뒤는', to7)
+
+
+//100뒤
+  let to100 = new Date(2022, 11, 16, 15, 40-45); //년 월 일 시 분
+  console.log('100일뒤는', to100)
+
+
+  </script>
+</body>
+</html>

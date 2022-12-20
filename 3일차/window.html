@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>window.html</title>
+</head>
+<body>
+  <div>
+    <button type="button" id="butOpen">새창열기</button>
+    <button type="button" id="butClose">창닫기</button>
+    <button type="button" id="butMove">이동</button>
+    <button type="button" id="butGeoLocation">현재위치</button>
+    <button type="button" id="butLink">페이지이동</button>
+    <button type="button" id="butRef">참조</button>
+  </div>
+
+  <div id="x"></div>
+
+  <script>
+    let popup ;
+
+    butLink.onclick = function(){
+      location.assign("location.html");
+    }
+
+    butGeoLocation.onclick = getLocation;
+
+    butOpen.onclick = function(doc, win, w, h){
+      //정가운데 정렬 교재 597페이지
+      // let width = ;
+      // let height = ;
+      let left =  100; 
+      let top = 100 ;
+
+      //같은 이름이 있으면 새로운 창을 계속 열지않음
+      popup = window.open('popup.html','random',
+                          'width=500,height=500, left=' + left + 'top=100' + top);
+      if(popup == null){
+        //팝업차단이 되어있으면 알림창이 뜸
+        alert('팝업 차단 해제');
+      } 
+    }
+    
+    //해당 버튼을 누르면 창을 닫음
+    butClose.onclick = function(){
+      popup.close();
+    }
+
+    //해당 버튼을 누르면 창이 이동함
+    butMove.onclick = function(){
+      popup.moveBy(100,0);
+    }
+
+    //해당 버튼을 누르면 사용자 위치의 위도와 경도를 반환함
+    function getLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition);
+    } else {
+      x.innerHTML = "Geolocation is not supported by this browser.";
+    }
+  }
+
+  function showPosition(position) {
+    x.innerHTML = "Latitude: " + position.coords.latitude +
+    "<br>Longitude: " + position.coords.longitude;
+  } 
+
+    //butOpen.click();
+    // console.log(window.innerWidth, window.innerHeight);//내용영역 너비 및 높이
+    // console.log(window.outerWidth, window.outerHeight);// 창 바깥 너비 및 높이
+    // console.log(window.screenX, window.screenY);//창위 가로위치 세로위치
+    // console.log(window.scrollX, window.scrollX);//창의 위치
+
+    console.log(navigator.userAgent);
+
+
+
+  </script>
+</body>
+</html>

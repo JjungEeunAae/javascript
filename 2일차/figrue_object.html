@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>figrue.html</title>
+</head>
+<body>
+  <script>
+    /*
+    피겨 점수 계산
+    최댓값, 최소값, 합계, 평균
+    */
+
+    /*
+    매개변수 : 점수를 배열로
+    리턴 : 점수들의 합계를 리턴 
+    */
+   function Figure(score){
+      this.score = score;
+      this.total = function(){        //배열받을곳
+        let s = 0;
+        for( let i = 0 ; i < score.length ; i++ ){
+          s += score[i]
+        }
+        this.sum = s;
+        return s;
+      } //end of total
+      
+      this.max = function(){
+        //최대값 변수 선언
+        let m = score[0];
+        for(let i = 0 ; i < score.length ; i++){
+        //점수배열 수만큼 반복문
+          if(score[i]>m){
+          //최대값이랑 배열의 요소값을 비교/요소값이 크면 최대값 변수에 저장
+            m = score[i]
+          }
+        }
+        //최대값리턴
+        this.maxNum = m;
+        return m;
+      }
+
+      this.min = function(){
+        let m = score[0];
+        for(let i = 1 ; i < score.length ; i++){
+          if(score[i]<m){
+            m = score[i];
+          }
+        }
+        //최대값리턴
+        this.minNum = m;
+        return m;
+      }
+    }
+
+
+    let tes_score = [3,4,1,5];
+    let figure = new Figure(tes_score);
+    figure.total();
+    figure.max();
+    figure.min();
+    // debugger
+    let avg = (figure.sum - figure.maxNum - figure.minNum) / (tes_score.length-2);
+
+    console.log( '총점:',figure.sum )
+    console.log( '최고점수:',figure.maxNum ) 
+    console.log( '최저점수:',figure.minNum ) 
+    console.log( '평균:',avg ) 
+
+
+
+
+    //예술점수
+    let pcs_score = [2,10,4,5];
+
+    //배열받을 곳
+    function total2(beauti){
+      let b = 0;
+      for(let i = 0 ; i < beauti.length ; i++){
+        b += beauti[i]
+      }
+      return b ;
+    }
+
+    //최대값
+    function max(beauti){
+      let m = beauti[0];
+    for(let i = 0 ; i < beauti.length ; i++){
+      if(beauti[i] > m){
+        m = beauti[i]
+        }
+      }
+      return m;
+    }
+
+    //최소값
+    function min(beauti){
+      let m = beauti[0];
+      for(let i = 1 ; i < beauti.length ; i++){
+        if(beauti[i] < m){
+          m = beauti[i]
+        }
+      }
+      return m;
+    }
+
+    
+    let pcs_total = total2(pcs_score);
+    let pcs_max = max(pcs_score)
+    let pcs_min = min(pcs_score)
+    let adg = (pcs_total - pcs_max - pcs_min) / (pcs_score.length-2);
+
+    console.log('총점:',pcs_total)
+    console.log('최고점수:',pcs_max)
+    console.log('최저점수:',pcs_min)
+    console.log('평균:',adg)
+
+  </script>
+</body>
+</html>

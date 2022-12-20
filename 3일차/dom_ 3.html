@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom_2.html</title>
+</head>
+<body>
+  <input id="txt1">
+  <input id="txt2">
+
+  <button id="addBtn1">추가</button>
+  <button id="addBtn2">추가</button><br>
+
+  <table>
+    <tr>
+      <td>txt1.value</td>
+      <td>txt2.value</td>
+    </tr>
+  </table>
+  
+  <script>
+    addBtn1.onclick = function(){
+
+      //tr 태그 생성
+
+      //td 태그의 생성하여 tr에 추가
+
+      //td태그 생성하여 tr에 추가
+
+      //tr을 tbody에 append
+      
+    }
+
+    addBtn2.onclick = function(){
+      itemList.innerHTML += `<option value="${txt1.value}"> ${txt2.value} </option>` // += -> a=a+b
+      txt1.value = '';
+      txt2.value = '';
+    }
+    // }
+  </script>
+</body>
+</html>

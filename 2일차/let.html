@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>let.html</title>
+</head>
+<body>
+  <script>
+  /*
+  var (중복선언 가능) 예시)var a = 10 var a = 20
+  script변수(전역변수) - 함수밖에 선언(모든 함수에서 사용가능)
+  local변수(지역변수) - 함수안에 선언(해당되는 함수 안에서만 사용가능)
+
+  let (중복선언 불가)
+  script변수(전역변수)
+  block변수(블럭변수:{}) - 지역보다 조금 더 좁은 의미
+  */
+  
+  //addNumber(덧셈), subNumber(뺄셈)
+
+  let sum = 0; //모든 함수에 접근 가능(script변수)
+  sum = addNumber()
+  addNumber()
+  subNumber()
+  alert(sum);
+
+  function addNumber(){
+    let sum = 0;               //함수안에서만 사용가능(local(지역)변수)
+    for(let i = 0 ; i<1; i++){ //block(블록)변수
+      sum += 10;
+    }
+    console.log(i);
+    return sum;
+  }
+  function subNumber(){
+    sum -= 10;
+}
+
+
+
+
+
+
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2884</title>
+</head>
+<body>
+  <script>
+    let input = prompt().split(" "); //prompt:텍스트입력창, split:문자열("") 변환 
+
+    let H = input[0] * 1;    //시간(hour)
+    let M = input[1] * 1;    //분(minute)
+
+    if( M - 45 < 0 ){       // 45분을 뺀 분(M)이 0보다 작을 경우(음수일때)
+      M = 60 + ( M - 45 );  // 60+(45분 뺀 값)이 M값이 되고,
+      H -= 1;               // 분(M)이 음수가 되니까 시간(H)을 1 뺀다.
+    }
+    if( H === -1){          // 시간(H)이 -1(음수) 일 때
+      H = 23;               // 시간(H)을 23으로!
+    }
+    console.log( H + '시간' + M + '분 입니다.')
+  </script>
+</body>
+</html>

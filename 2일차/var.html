@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>var.html</title> 
+</head>
+<body>
+  <script>
+    var asum = 0;
+    let cnt = 0;
+    addNumber();
+    alert(asum);
+    alert(i);
+
+    function addNumber(){
+      var asum = 0;                    //var는 블록단위 상관없음
+      for(i=0 ; i<1 ; i++){        //전역
+        asum += 10;
+      }
+      console.log(i) //i가 보이는가?
+    }
+
+    debugger
+  </script>
+</body>
+</html>
