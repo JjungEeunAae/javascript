@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>if5.html</title>
+</head>
+<body>
+  <div id="result"></div>
+
+  <script>
+    // let frut = ['사과','바나나','키위'];
+    // let checked = '바나나';
+    // for(let i = 0 ; i < frut.length ; i++){
+    //   //fruit[i]와 checked 값이 같으면 'checked' 속성 추가
+    //   result.innerHTML += `<input type="checkbox" ${fruit[i] == checked ? 'checked' : ''}>${fruit[i]}`
+    // }
+
+    let frut = ['사과','바나나','키위'];
+    let checked = ['바나나','키위'];
+    for(let i = 0 ; i < frut.length ; i++){
+      //fruit[i]와 checked 값이 같으면 'checked' 속성 추가
+      result.innerHTML += `<input type="checkbox" ${checked.indexOf(frut[i]) != -1 ? 'checked' : ''}>${frut[i]}`
+    }
+  </script>
+</body>
+</html>
