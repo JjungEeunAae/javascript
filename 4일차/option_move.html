@@ -5,6 +5,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>option_move.html</title>
+  <style>
+    select {
+      width: 200px;
+      height: 150px;
+    }
+  </style>
 </head>
 <body>
   <select size="10" id="left">
@@ -13,23 +19,40 @@
     <option>키위</option>
     <option>토마토</option>
   </select>
-  <select size="10" id="right">
-
+  <select size="10" id="right" style="margin-left: 30px;">
+    
   </select>
 
   <script>
     //left에 있는 목록을 right로 옮기기
-    left.ondblclick = function(ev){
-      let option = ev.target; //이벤트가 발생한 태그
-      console.log(option.innerText); //선택한 option태그
-      //태그생성해서 오른쪽으로 추가(append.)
-      //옵션 태그를 생성
-      let optionTwo = document.createElement('option');
-      //옵션 내용을 적고
-      innerText
-      //(append.)
+
+    //left select 더블클릭 이벤트
+    left.ondblclick = function(event){
       
-      // ev.target.remove();
+      //option(변수)= 이벤트가 발생한 바로 그 요소를 직접 가르킨다
+      let option = event.target; 
+      //선택한 option태그
+      
+      /*
+      태그 생성해서 오른쪽으로 추가시키기(append.)
+      */
+     // createElement는 한 주기가 다 돌아가면 자동삭제 처리
+     // 옵션 태그를 생성 (<option></option>)
+      let new_option = document.createElement('option');
+
+      /*
+      option 요소(Element)의 텍스트(바나나,딸기 등)를
+      옵션태그가 생성된 변수에 삽입
+      */
+      new_option.append(option.innerText);
+
+      //오른쪽에 있는 select의 요소(Element)를 가져온다.
+      let right = document.getElementById("right");
+
+      //가져 온 요소 안에 삽입(append) 시킨다.
+      right.append(new_option);
+
+      //left의 자식요소인 이벤트가 발생한option을 삭제시킨다.
       left.removeChild(option);
     }
 
