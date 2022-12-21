@@ -6,15 +6,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>append2.html</title>
   <style>
+    h1{
+      color: red;
+    }
     div{
       margin: 5px;
       padding: 10px;
-      border: 1px solid orange;
+      border: 1px solid darkblue;
     }
   </style>
 </head>
 <body>
-
+    <h1>appen 두번째</h1>
     <div id="apple">사과</div>
     <div id="banana">바나나</div>
     <div id="kiwi">키위</div>
@@ -23,44 +26,46 @@
 
     <script>
       //'<div><span>사과</span></div>' //createElement.innerText,append
-      //div라는 태그를 생성 => <div></div>
+      apple.onclick = function(){
+      //div라는 요소를 생성 => <div></div>
       let frut = document.createElement("div");
 
-      //태그에 텍스트를 넣는다. => <div>Text</div>
+        //요소에 텍스트를 넣는다. => <div>Text</div>
         // frut.innerText="삭와";
         
-        //태그에 class 속성 넣기 => <div class="Apple">Text</div>
+        //요소에 class 속성 넣기 => <div class="Apple">Text</div>
         // frut.setAttribute("class","Apple");
         frut.classList.add("Apple");
         
-        //태그에 title 속성 넣기
+        //요소에 title 속성 넣기
         frut.title = "사과";
 
-        //태그에 ID 속성 넣기
+        //요소에 ID 속성 넣기
         frut.id="aaapple";
 
-        //basket에 담는다 => 
+        //basket에 담는다
+        //바스켓에 furt이라는 요소를 담는다.
+        // document.querySelector("#basket").append(furt);
         basket.append(frut);
         
         //생성한 태그를 누르면 삭제
         frut.onclick = function(){
           this.remove();
+        }
 
-
-
-        apple.onclick = function(){
-        //<div class title id><span>사과</span></div>
-        //span태그생성
-        let spang = document.createElement("span");
-  
-        //span태그내용
-        spang.innerHTML="삭왕";
-  
-        //span 태그를 div에 추가
-        frut.append(spang);
+          //<div class title id><span>사과</span></div>
+          //span 요소 생성
+          let spang = document.createElement("span");
+          
+          //span 속성 텍스트 내용
+          spang.innerHTML= "해~~~~결!!";
+          
+          //span 요소를 div에 추가
+          frut.append(spang);
+          
         }
         
-      }
+      
     </script>
 </body>
 </html>

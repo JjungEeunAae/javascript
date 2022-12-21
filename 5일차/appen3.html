@@ -9,7 +9,7 @@
     div{
       margin: 5px;
       padding: 10px;
-      border: 1px solid orange;
+      border: 1px solid palegreen;
     }
   </style>
 </head>
@@ -21,29 +21,43 @@
 
     <div id="basket"></div>
 
-    <div id="template" style="display: none;">
+    <div id = "template" style = "display: none;" >
       <div class="fruit" title="사과"><span>사과</span></div>
     </div>
     <script>
-      //웹문서 중 class fut을 찾아 배열시키고
+      //과일들이 바구니에 담기는 동작
+
+      //웹문서 중 class fut을 찾아 배열시키고 변수에 담기
       let ele = document.querySelectorAll(".fut");
-      console.log(ele);
       
-      //
+      //하나하나 설정하기 번거로우니까 과일들이 바구니에 담길 수 있도록 반복문 진행
       for(let i = 0 ; i < ele.length ; i++){
+        //class fut이 담긴 변수의 이벤트 발생
         ele[i].onclick = function(){
+
+          //이벤트 타깃(마우스로 클릭)이 되는 텍스트를 변수에 담는다.
           let content = event.target.innerText;
+          
+          //template이라는 id의 속성(class=fruit)을 찾아 자식요소까지 모두 복사
+          //객체에 포함된 자식까지 모두 복사 = cloneNode(true)
+          //*****cloneNode를 true로 설정하면 그 요소의 자식까지 복사한다
           let ddiv = template.querySelector(".fruit").cloneNode(true);
+
+          /*??????????????*/
           ddiv.title = content;
+          
+          //복사된 요소 속성 중 span의 텍스트은 이벤트 타깃이다
           ddiv.querySelector("span").innerText = content;
+          
+          //이벤트 타깃이 된 요소를 basket 요소에 추가한다
           basket.append(ddiv);
 
-          // ddiv.onclick = function(){
-          //   event.target.remove();
-          //   basket.append(ddiv); //이동
-          // }
+          //ddiv 클릭하면 삭제시키기
+          ddiv.onclick = function(){
+            event.target.remove();
+          }
         }
-    }
+      }
 
 
     </script>

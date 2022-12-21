@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home_append.html</title>
+  <style>
+    div{
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+  <div id="apple">사과</div>
+  <div id="banana">바나나</div>
+  <div id="kiwi">키위</div>
+
+  <div id="basket"></div>
+  <script>
+    /*사과 div를
+    id basket인 div에 담기*/
+    //이벤트발생
+    apple.onclick = function(){
+
+    //div라는 요소를 생성(div)
+    //요소는 태그들을 이용해서 만들어낸 웹페이지의 구성 요소
+    let furt = document.createElement("div");
+
+    //요소에 텍스트를 넣는다
+    furt.innerHTML = "사과";
+
+    //요소에 class 속성 넣기
+    furt.classList.add("Apple");
+
+    //요소에 title 속성 넣기
+    // furt.getAttrobite("class", "Apple");
+    furt.title = "apppple";
+
+    //태그에 ID 속성 넣기
+    furt.id = "fut";
+
+    //basket에 담기
+    //바스켓에 furt이라는 요소를 담는다.
+    // document.querySelector("#basket").append(furt);
+    basket.append(furt);
+
+    //생성한 태그를 누르면 삭제
+    furt.onclick = function(){
+      this.remove();
+    }
+  }
+  </script>
+</body>
+</html>
