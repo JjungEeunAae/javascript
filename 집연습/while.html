@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>while 문으로 팩토리얼 만들기</title>
+</head>
+<body>
+  <script>
+    //팩토리얼이란 1부터 주어진 어떤 숫자(n)까지 곱한 결과
+    //예를들어 3의 팩토리얼은 1*2*3이라 값이 6이 된다.
+    //3팩토리얼, 즉 3!이라고 쓴다.
+    let n = prompt("숫자입력하세요");
+    let msg = "";
+
+    //취소 버튼을 누르지 않았는지 체크
+    if(n !== null){
+      //결과값,0으로 하면 곱셈이라 모든 결과값이 0이 나온다
+      let nFact = 1;
+      //카운터, 0으로 하면 곱셈이라 모든 결과값이 0이 나온다
+      let i = 1;
+
+      while(i<=n){
+        nFact *= i;
+        i++;
+      }
+      //결과값을 표시할 문자열
+      msg = n + "! = " + nFact;
+    } 
+    //취소버튼이 눌렸다면 알림창으로 안내
+    else{
+      alert("숫자가 입력되지 않았습니다");
+    }
+
+    console.log(msg);
+  </script>
+</body>
+</html>

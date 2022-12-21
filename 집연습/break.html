@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>break문으로 구구단 3단까지만 표시하기</title>
+</head>
+<body>
+  <script>
+    let i, j;
+
+    //1~9까지의 반복문을 기재 i * j 증 i자리
+    for(let i = 1 ; i <= 9 ; i++){
+      document.write("<div>");
+      document.write("<h3>" + i + "단</h3>");
+
+      //1~9까지의 반복문 기재 i * j 중 j자리
+      for(let j = 1 ; j <= 9 ; j++){
+        document.write(`${i}  X  ${j}  =  ${i*j} <br>`);
+      }
+      document.write("<div>");
+
+      //곱셈 3단까지 나오게한 조건문
+      if(i === 3) break;
+    }
+  </script>
+</body>
+</html>
