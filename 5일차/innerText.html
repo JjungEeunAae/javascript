@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>innerText.html</title>
+</head>
+<body>
+  <h3>태그내용(바디) innerText, innerHTML 비교</h3>
+
+  <p id="p1"><strong>Ajax</strong>프로그래밍,<br/>기초</p>
+
+  <input type="button" id="btn" value="보기">
+
+    <script>
+      btn.onclick = function(){
+        p1.innerText = "<strong>Ajax</strong> 프로그래밍,<br/>기초"
+        p1.innerHTML = "<strong>Ajax</strong> 프로그래밍,<br/>기초"
+        console.log(p1.innerText);
+        console.log(p1.innerHTML);
+
+      }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>class.html</title>
+  <style>
+    .hide{
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h3>class 속성을 제어</h3>
+  <button id="btn">안보이게 토글</button>
+  <div> a </div>
+  <script>
+    btn.onclick = function(){
+      //제어하고자 하는 HTML에 있는 Tag(div)를 변수에 담고,
+      let div = document.getElementsByTagName("div")[0];
+
+      //현재 div의 class를 gatAttribute를 이용하여 태그속성을 조회 
+      let classValue = div.getAttribute("class");
+
+      //만약 클래스 속성이 'hide'라면 클래스 삭제
+      if(classValue == 'hide'){
+
+        //속성제거
+        div.removeAttribute("class");
+      }
+      else{
+        //아니면 'hide' 클래스 추가
+        div.className = 'hide'; //=div.setAttribute("class","hide");
+      }
+
+
+      // =div.setAttribute("class","hide");
+      // div.className = "hide";
+    }
+  </script>
+</body>
+</html>

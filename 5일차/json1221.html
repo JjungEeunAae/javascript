@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>json1221.html</title>
+</head>
+<body>
+  <h3>json</h3>
+  <div id="result">
+    <div><span>choi</span><span>20</span></div>
+  </div>
+  <script>
+    //{} 하나의 변수에 여러가지 값을 넣고자 할 때
+    let person = { name:'choi' , age:'20'}; 
+    let persons = [
+    { name:'kim' , age:'10'},
+    { name:'pack' , age:'30'}
+    ];
+
+    for(let i = 0 ; i < persons.length ; i++){
+      let newNode = `<div><span>${persons[i].name}</span><span>${persons[i].age}</span></div>`;
+      result.innerHTML += newNode;
+    }
+  </script>
+</body>
+</html>

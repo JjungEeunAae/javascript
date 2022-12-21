@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append.html</title>
+  <style>
+    div{
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="apple">사과</div>
+    <div id="banana">바나나</div>
+    <div id="kiwi">키위</div>
+
+    <div id="basket"></div>
+
+    <script>
+      apple.onclick = function(){
+        //'<div><span>사과</span></div>' //createElement.innerText,append
+
+        //div라는 태그를 생성 => <div></div>
+        let frut = document.createElement("div");
+
+        //태그에 텍스트를 넣는다. => <div>Text</div>
+        frut.innerText="삭와";
+
+        //태그에 class 속성 넣기 => <div class="Apple">Text</div>
+        // frut.setAttribute("class","Apple");
+        frut.classList.add("Apple");
+
+        //태그에 title 속성 넣기
+        frut.title = "사과";
+
+        //태그에 ID 속성 넣기
+        frut.id="aaapple";
+
+        //basket에 담는다 => 
+        basket.append(frut);
+
+        //생성한 태그를 누르면 삭제
+        frut.onclick = function(){
+          this.remove();
+        }
+
+      }
+    </script>
+</body>
+</html>

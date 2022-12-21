@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append4.html</title>
+  <style>
+    div{
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="apple" class="fut">사과</div>
+    <div id="banana" class="fut">바나나</div>
+    <div id="kiwi" class="fut">키위</div>
+
+    <div id="basket"></div>
+
+    <div id="template" style="display: none;">
+      <div class="fruit" title="사과"><span>사과</span></div>
+    </div>
+    <script>     
+      //   document.body.addEventListener("click" , function(event){
+      //     if( !event.target.classList.contains("fut") ){
+      //       return;
+      //     }
+      //     let content = event.target.innerText;
+      //     let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
+      //     basket.innerHTML += div ; //이동
+      //   });
+
+      // basket.addEventListener("click",function(event){
+      //   if(!event.target.classList.contains("fruit"))
+      //   return;
+      //   event.target.remove();
+      // })
+
+        document.body.addEventListener("click" , function(event){
+          if( !event.target.classList.contains("fut") ){
+            return;
+          }
+          let content = event.target.innerText;
+          let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
+          basket.innerHTML += div ; //이동
+        });
+
+        //이벤트위임(그룹이벤트):부모태그에 이벤트를 지정
+        basket.addEventListener("click",function(event){
+
+          //이벤트가 실행되는 태그를 찾아보기
+          console.dir(event.target);
+
+          //실제로 이벤트가 발생한 대상(태그=타겟)
+          let node = event.target; 
+
+          //div 본인이면 본인삭제
+          if(node.classList.contains("fruit")){
+            node.remove();
+          }
+
+          //div가 아닌 span 태그이면 부모 div를 삭제
+          else if(node.nodeName == "SPAN"){ 
+            node.parentNode.remove();
+          }
+        })
+
+    </script>
+</body>
+</html>

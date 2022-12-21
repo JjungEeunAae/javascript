@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append3.html</title>
+  <style>
+    div{
+      margin: 5px;
+      padding: 10px;
+      border: 1px solid orange;
+    }
+  </style>
+</head>
+<body>
+
+    <div id="apple" class="fut">사과</div>
+    <div id="banana" class="fut">바나나</div>
+    <div id="kiwi" class="fut">키위</div>
+
+    <div id="basket"></div>
+
+    <div id="template" style="display: none;">
+      <div class="fruit" title="사과"><span>사과</span></div>
+    </div>
+    <script>
+      //웹문서 중 class fut을 찾아 배열시키고
+      let ele = document.querySelectorAll(".fut");
+      console.log(ele);
+      
+      //
+      for(let i = 0 ; i < ele.length ; i++){
+        ele[i].onclick = function(){
+          let content = event.target.innerText;
+          let ddiv = template.querySelector(".fruit").cloneNode(true);
+          ddiv.title = content;
+          ddiv.querySelector("span").innerText = content;
+          basket.append(ddiv);
+
+          // ddiv.onclick = function(){
+          //   event.target.remove();
+          //   basket.append(ddiv); //이동
+          // }
+        }
+    }
+
+
+    </script>
+</body>
+</html>
