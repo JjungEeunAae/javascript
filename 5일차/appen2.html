@@ -22,44 +22,35 @@
     <div id="basket"></div>
 
     <script>
-      //'<div><span>사과</span></div>' //createElement.innerText,append
-      //div라는 태그를 생성 => <div></div>
-      let frut = document.createElement("div");
-
-      //태그에 텍스트를 넣는다. => <div>Text</div>
-        // frut.innerText="삭와";
-        
-        //태그에 class 속성 넣기 => <div class="Apple">Text</div>
-        // frut.setAttribute("class","Apple");
-        frut.classList.add("Apple");
-        
-        //태그에 title 속성 넣기
-        frut.title = "사과";
-
-        //태그에 ID 속성 넣기
-        frut.id="aaapple";
-
-        //basket에 담는다 => 
-        basket.append(frut);
-        
-        //생성한 태그를 누르면 삭제
-        frut.onclick = function(){
-          this.remove();
-
-
-
-        apple.onclick = function(){
+      /*div와 span을 생성하고
+      span 내용에 텍스트 추가,
+      생성한 div 태그에 span 태그 추가
+      div class, title, id 추가
+      생성한 div 클릭 시 삭제됨
+      apple id를 가진 div를 id basket인 div에 삽입*/
+      apple.onclick = function(){
+        //div라는 태그를 생성 => <div></div>
+        let frut = document.createElement("div");
         //<div class title id><span>사과</span></div>
         //span태그생성
         let spang = document.createElement("span");
-  
         //span태그내용
-        spang.innerHTML="삭왕";
-  
-        //span 태그를 div에 추가
+        spang.innerText="삭왕";
+        //span 태그를 div에 삽입
         frut.append(spang);
-        }
-        
+        //태그에 class 속성 삽입 => <div class="Apple">Text</div>
+        // =frut.setAttribute("class","Apple");
+        frut.classList.add("Apple");
+        //태그에 title 속성 넣기
+        frut.title = "사과";
+        //태그에 ID 속성 넣기
+        frut.id="aaapple";
+        //생성한 태그를 누르면 삭제
+        frut.onclick = function(){
+          this.remove();
+    }
+          //basket에 생성된 div 삽입 
+          basket.append(frut);
       }
     </script>
 </body>

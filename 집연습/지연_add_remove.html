@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>add_remove.html</title>
+</head>
+<body>
+  <h3>노드 추가 삭제</h3>
+  <button class = "btnadd">+</button>
+    <div id = "temp">
+      <input id = "school"><input id = "dt"><button class = "btn">-</button>
+    </div>
+  <div id ="result"></div>
+  <script>
+    let btnadd = document.getElementsByClassName("btnadd")[0]   //엘리먼트(태그)는 복수다, 배열로 만들어지기 때문에 자리적을것
+    temp = document.querySelector("#temp")          //28번의 temp를 알려주기위해 만든다
+    btnadd.onclick = function(){        //태그이벤트
+   /*    result.innerHTML +=
+      `<div id = "temp">
+        <input id = "school"><input id = "dt"><button class = "btn">-</button>
+      </div>` */
+        let new_div = document.createElement("div");   //생성하고자 하는 태그가 들어가야한다
+        //setAttribute
+        new_div.setAttribute("id","temp");             //태그와 태그명, 바꿀려는 태그.setAttribute(바꾸고자하는 속성,그속성값)
+        //appendChild = append 
+        new_div.innerHTML = temp.innerHTML;   //태그내용 <>내용<>
+        document.body.appendChild(new_div);  //temp의 생김새로 append(기존에서 추가)new_div를 추가한다
+        //innerHTML
+        //result.innerHTML
+    }
+  </script>
+</body>
+</html> 

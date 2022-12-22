@@ -22,28 +22,40 @@
     <div id="basket"></div>
 
     <div id="template" style="display: none;">
-      <div class="fruit" title="사과"><span>사과</span></div>
+      <div class="fruit" title="사과">
+        <span>사과</span>
+      </div>
+      <!-- <div><span>바나나</span></div> -->
     </div>
     <script>
-      //웹문서 중 class fut을 찾아 배열시키고
+      //웹문서 중 class fut을 찾는다(배열상태)
       let ele = document.querySelectorAll(".fut");
-      console.log(ele);
-      
-      //
+      //class fut 반복문
       for(let i = 0 ; i < ele.length ; i++){
+        //div 이벤트 발생
         ele[i].onclick = function(){
+          //텍스트가 이벤트 타깃이다 (div 클릭이 타겟).
           let content = event.target.innerText;
+          //div의 안에 class가 fruit인 div 자식까지 모두 복사한다.
+          // class name이 fruit인 애를 복제를 한다
           let ddiv = template.querySelector(".fruit").cloneNode(true);
+
+          //클릭하는 텍스트가 div의 title로 변경된다?
+          //<div class="fruit" title="●클릭시 변경되는 값●"><span>사과</span></div>
           ddiv.title = content;
+
+          //클릭하는 텍스트가 span의 내용으로 변경된다? (DIV 클론 따서 그 안의 span태그의 Text를 바꾸는 것)
+          ////<div class="fruit" title="사과"><span>●클릭시 변경되는 값●</span></div>
           ddiv.querySelector("span").innerText = content;
+
+          //div(id=basket)에 복사된 div를 삽입한다.
           basket.append(ddiv);
 
-          // ddiv.onclick = function(){
-          //   event.target.remove();
-          //   basket.append(ddiv); //이동
-          // }
+          ddiv.onclick = function(){
+            event.target.remove();
+          }
         }
-    }
+      }
 
 
     </script>

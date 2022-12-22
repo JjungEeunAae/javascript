@@ -18,26 +18,26 @@
     temp = document.querySelector("#temp");
 
     btnadd.onclick = function(){
-      // result.innerHTML +=
-      // `<div class="temp">
-      // <input id="school"><input id="dt"><button class="btn">-</button>
-      // </div>`
-
       //div라는 태그를 생성
       let newDiv = document.createElement("div");
       //setAttribute
       //appendChild = append
       //innerText
-
+      
       //newDiv라는 div태그에 속성명과 속성값을 넣는다
       newDiv.setAttribute("id","temp"); //태그와 태그명
       
       //newDiv라는 div태그 텍스트에 temp의 태그 내용을 넣는다
       newDiv.innerHTML = temp.innerHTML;
-
+      
       //웹문서 바디에 자식에 newDiv를 나타나게한다.
       document.body.appendChild(newDiv);
     }
-  </script>
+      
+    // result.innerHTML +=
+    // `<div class="temp">
+    // <input id="school"><input id="dt"><button class="btn">-</button>
+    // </div>`
+    </script>
 </body>
 </html>

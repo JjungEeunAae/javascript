@@ -40,6 +40,7 @@
 
     function callback(){
       let obj = JSON.parse(xhr.response);
+      console.log(obj)
       //tr태그로 만들어서 table연결
       for(let i = 0 ; i < obj.length ; i++){
         let div = `

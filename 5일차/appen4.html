@@ -25,16 +25,19 @@
       <div class="fruit" title="사과"><span>사과</span></div>
     </div>
     <script>
-      //웹문서 중 class fut을 찾아 배열시키고
+      //웹문서에서 class fut인 값을 배열
       let ele = document.querySelectorAll(".fut");
       
-      //
+      //클릭하는 div의 타이틀과 내용을 변경시킨다.
       for(let i = 0 ; i < ele.length ; i++){
+        //원클릭 이벤트 발생(핸들러)
         ele[i].onclick = function(){
+          //텍스트가 이벤트 타깃
           let content = event.target.innerText;
-
+          //title과 text를 div 클릭할 때 마다 변경되게 만든다.
           let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
-          basket.innerHTML += div ; //이동
+          //해당 값을 담을 div에 추가(이동)한다.
+          basket.innerHTML += div ;
 
         }
     }

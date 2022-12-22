@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>append.html</title>
+  <style>
+    div{
+      margin : 5px; padding : 10px; border : 1px solid pink;
+    }
+  </style>
+  </head>
+<body>
+  <div id = "basket"></div>
+
+  <div id = "apple" >사과</div>
+  <div id = "banana">바나나</div>
+  <div id = "cherry">체리</div>
+
+  <script>
+    apple.onclick = function(){
+      //'<div class="fruit" title="사과" id = "apple"><span>사과</span></div>'   //createElement, innerText, append
+      let new_div = document.createElement("div");
+      //new_div.innerHTML = "<span>사과</span>";
+      //span태그 생성
+      let span_div = document.createElement("span");
+      //span태그 내용
+      span_div.innerText = "사과"
+      //span태그를 div에 추가
+      new_div.append(span_div);
+
+      // new_div.setAttribute("class","fruit") 
+      // new_div.className = "fruit"       property(속성)임으로 =
+      new_div.classList.add("fruit");   //method(함수)임으로 add.()  div에 class 추가
+      //new_div.setAttribute("title","사과");
+      new_div.title = "사과"
+      //new_div.setAttribute("id","apple");
+      new_div.id = "apple"
+      // document.querySelector("#basket").append(new_div);
+      new_div.onclick = function(){
+        event.target.remove();
+      }
+      basket.append(new_div);
+    }
+  </script>
+</body>
+</html>

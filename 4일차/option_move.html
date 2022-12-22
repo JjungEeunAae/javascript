@@ -1,36 +1,60 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>option_move.html</title>
+  <style>
+    #container{
+      width: 300px;
+      margin: 0 auto;
+    }
+    h3{
+      text-align: center;
+    }
+    select{
+      width: 100px;
+      margin-left: 10px;
+    }
+    option{
+      width: 100px;
+    }
+  </style>
 </head>
 <body>
-  <select size="10" id="left">
-    <option>바나나</option>
-    <option>사과</option>
-    <option>키위</option>
-    <option>토마토</option>
-  </select>
-  <select size="10" id="right">
-
-  </select>
-
+  <div id="container">
+    <h3>과일옮기기</h3>
+    <select size="10" id="left">
+      <option>바나나</option>
+      <option>사과</option>
+      <option>키위</option>
+      <option>토마토</option>
+    </select>
+    <select size="10" id="right"> </select>
+  </div>
   <script>
     //left에 있는 목록을 right로 옮기기
     left.ondblclick = function(ev){
-      let option = ev.target; //이벤트가 발생한 태그
-      console.log(option.innerText); //선택한 option태그
-      //태그생성해서 오른쪽으로 추가(append.)
+      //이벤트가 발생
+      let option = ev.target; 
       //옵션 태그를 생성
       let optionTwo = document.createElement('option');
-      //옵션 내용을 적고
-      innerText
-      //(append.)
-      
+      //select의 자식태그를 삽입한다.
+      right.appendChild(optionTwo);
+      //더블클릭하는 값을 생성된 option 텍스트로 삽입한다
+      optionTwo.innerText = option.value;
+      //더블클릭하면 left select에서 삭제된다.
       // ev.target.remove();
       left.removeChild(option);
+    }
+    
+    right.ondblclick = function(event){
+      let option = event.target; 
+      let optionTwo = document.createElement('option');
+      left.appendChild(optionTwo);
+      optionTwo.innerText = option.value;
+      right.removeChild(option);
     }
 
   </script>

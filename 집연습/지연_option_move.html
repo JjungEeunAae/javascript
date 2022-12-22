@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>option_move.html</title>
+</head>
+<body>
+  <select size="10" id="left">
+    <option>바나나</option>
+    <option>사과</option>
+    <option>포도</option>
+    <option>체리</option>
+  </select>
+  <select size="10" id="right"></select>
+  <script>
+    left.ondblclick = function(ev){
+      let option = ev.target;     //선택한 옵션
+      console.log(option.innerText)
+      //태그생성해서 right append     .innerHTML, append
+      let newload = document.createElement("option")
+      right.appendChild(newload)
+      newload.innerText = option.value
+      //option.remove();
+      left.removeChild(option)
+     //기존에 있는건 왼쪽에서 지우고 새로만든건 오른쪽으로 이동
+    }
+  </script>
+</body>
+</html>
