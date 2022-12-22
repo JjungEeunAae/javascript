@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  #container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 20px
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container {
+    padding: 2px 16px;
+  }
+</style>
+</head>
+<body>
+  <h2>Card</h2>
+  <div id="container">
+    <div class="card">
+      <img src="/3일차/img/강아지2.jpg" alt="Avatar" style="width:100%">
+      <div class="container">
+        <h4><b>John Doe</b></h4> 
+        <p>Architect & Engineer</p> 
+      </div>
+    </div>
+  </div>
+<script>
+  let persons = [
+    { name:'kim' , skill:'Architect & Engineer' , img:'/3일차/img/강아지.jpg' , alt:"a"},
+    { name:'pack' , skill:'deginner' , img:'/3일차/img/강아지3.jpg' , alt:"b"},
+    { name:'lee' , skill:'program' , img:'/3일차/img/강아지4.jpg' , alt:"c"}
+    ];
+
+    for(let i = 0 ; i < persons.length ; i++){
+      let newNode = ` 
+        <div class="card">
+          <img src="${persons[i].img}" alt="${persons[i].alt}" style="width:100%">
+        <div class="container">
+        <h4><b>${persons[i].name}</b></h4> 
+        <p>${persons[i].skill}</p> 
+      </div>`;
+
+      container.innerHTML += newNode;
+      
+    }
+</script>
+</body>
+</html> 

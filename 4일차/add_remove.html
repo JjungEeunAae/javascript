@@ -9,26 +9,35 @@
 <body>
   <h3>노드 추가 삭제</h3>
   <button class="btnadd">+</button>
-    <div class="temp">
+    <div id="temp">
       <input id="school"><input id="dt"><button class="btn">-</button>
     </div>
     <div id="result"></div>
   <script>
     let btnadd = document.getElementsByClassName("btnadd")[0];
+    temp = document.querySelector("#temp");
+
     btnadd.onclick = function(){
       // result.innerHTML +=
       // `<div class="temp">
       // <input id="school"><input id="dt"><button class="btn">-</button>
       // </div>`
-      let div = document.createElement("div");
+
+      //div라는 태그를 생성
+      let newDiv = document.createElement("div");
       //setAttribute
       //appendChild = append
       //innerText
-      setAttribute("div")
+
+      //newDiv라는 div태그에 속성명과 속성값을 넣는다
+      newDiv.setAttribute("id","temp"); //태그와 태그명
+      
+      //newDiv라는 div태그 텍스트에 temp의 태그 내용을 넣는다
+      newDiv.innerHTML = temp.innerHTML;
+
+      //웹문서 바디에 자식에 newDiv를 나타나게한다.
+      document.body.appendChild(newDiv);
     }
-
-    let 
-
   </script>
 </body>
 </html>

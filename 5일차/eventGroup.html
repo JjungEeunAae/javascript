@@ -45,7 +45,7 @@
             return;
           }
           let content = event.target.innerText;
-          let div = `<div class="fruit" title="${content}"><span>${content}</span></div>`;
+          let div = `<div class="fruit" title="${content}"><span>${content}<button>삭제</button></span></div>`;
           basket.innerHTML += div ; //이동
         });
 
@@ -64,8 +64,10 @@
           }
 
           //div가 아닌 span 태그이면 부모 div를 삭제
-          else if(node.nodeName == "SPAN"){ 
-            node.parentNode.remove();
+          else if(node.nodeName == "BUTTON"){ 
+            // node.parentNode.remove();
+            //부모들 중에서 가장 가까운 부모를 찾아서 삭제
+            node.closest("div").remove();
           }
         })
 

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>traverse2.html</title>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>4</td>
+      <td><button>조회</button></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>6</td>
+      <td><button>조회</button></td>
+    </tr>
+  </table>
+
+  <script>
+    //조회버튼을 누르면 tr의 1~2번째 형제를 찾아 조회
+    document.querySelector("table").addEventListener("click",function(event){
+      //event.target
+      let node = event.target;
+      //버튼클릭시 해당 버튼의 형들(td)의 태그 내용 읽기(조회)
+      if(node.nodeName == "BUTTON"){
+        //부모까지 가서 찾아오기
+        let tds = node.closest("tr").children
+        console.log(tds[0].innerText);
+        console.log(tds[1].innerText);
+
+        let td1 = node.parentElement.previousElementSibling.innerText;
+        let td2 = node.parentElement.previousElementSibling.previousElementSibling.innerText;
+        console.log(td1,td2);
+
+        /*closest(부모의 부모(조상)찾기),
+        parentElement(부모찾기),
+        children(자식찾기),
+        previousElementSibling(앞 형제 찾기),
+        nextElementSibling(뒤 형제(동생) 찾기)*/
+        //closest()만 함수, 그 외엔 전부 속성
+        //
+      }
+    })
+  </script>
+</body>
+</html>
