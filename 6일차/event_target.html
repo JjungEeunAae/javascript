@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>event_target_보강.html</title>
+</head>
+<body>
+  <div id="result">
+    <div>a</div>
+    <div>b</div>
+    <div>c</div>
+  </div>
+
+  <script>
+    // let div = document.querySelectorAll("#result div");
+    // for(let i = 0 ; i < div.length ; i++){
+    //   div[i].addEventListener("click",(ev)=>{console.log(ev.target.innerText)})
+    // }
+
+    result.addEventListener("click",(ev)=>{console.log(ev.target.innerText)});
+
+
+
+  </script>
+</body>
+</html>
