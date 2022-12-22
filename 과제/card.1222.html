@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  #container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    grid-gap: 20px
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 40%;
+  }
+
+  .card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  }
+
+  .container {
+    padding: 2px 16px;
+  }
+</style>
+</head>
+<body>
+  <h2>Card</h2>
+  <div id="container">
+    <div id="template" style="display:none;">
+      <div class="card">
+        <img src="/3일차/img/강아지2.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>name</b></h4> 
+          <p>email</p> 
+          <p>company.name</p> 
+        </div>
+      </div>
+    </div>
+  </div>
+<script>
+  (function user(){
+    //ajax 호출
+
+    //1.xhr 객체 생성
+    let xhr = new XMLHttpRequest();
+
+    //2. 콜백 함수
+    xhr.onload = function(){callback(xhr)};
+
+    //3. 요청연결
+    let url = 'https://jsonplaceholder.typicode.com/users';
+    xhr.open('get',url);
+
+    //4. 요청전달
+    xhr.send();
+  })
+  //바로호출
+  ();
+
+
+  //콜백함수에 대한 행동(핸들러)
+  function callback(xhr){
+    let list = JSON.parse(xhr.response);
+
+    for(let i = 0 ; i < list.length ; i++){
+      let div = `
+      <div class="card">
+        <img src="/3일차/img/강아지2.jpg" alt="Avatar" style="width:100%">
+        <div class="container">
+          <h4><b>${list[i].name}</b></h4> 
+          <p>${list[i].email}</p> 
+          <p>${list[i].company.name}</p> 
+        </div>
+      </div>`
+      console.log(div);
+      container.innerHTML += div;
+    } 
+  }
+</script>
+</body>
+</html> 

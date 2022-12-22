@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>xhr.html</title>
+</head>
+<body>
+  <h3>서버에서 비동기로 데이터 가져오기</h3>
+  <table border="1">
+    <tbody id="tBody">
+      <tr>
+        <td>userId</td>
+        <td>id</td>
+        <td>title</td>
+        <td>body</td>
+      </tr>
+    </tbody>
+  </table>
+  <script>
+
+    /*url , 응답처리만 달라진다
+    그 외엔 순서 똑같음
+    서버에서 받아오는 데이터는 모두 스트링( {}, []으로 되어있는 문자열)*/
+
+
+    //1. xhr객체 생성
+    let xhr = new XMLHttpRequest();
+    
+    //2. 콜백함수 지정 이벤트핸들러
+    xhr.onload = callback;
+
+    //3. 요청연결 
+    let url = 'https://jsonplaceholder.typicode.com/posts'
+    xhr.open('get',url);
+
+    //4. 요청 전달 send?
+    xhr.send();
+
+    function callback(){
+      let obj = JSON.parse(xhr.response);
+      //tr태그로 만들어서 table연결
+      for(let i = 0 ; i < obj.length ; i++){
+        let div = `
+            <tr>
+              <td>${obj[i].userId}</td>
+              <td>${obj[i].id}</td>
+              <td>${obj[i].title}</td>
+              <td>${obj[i].body}</td>
+            </tr>`;
+
+        tBody.innerHTML += div;
+      }
+    }
+  </script>
+</body>
+</html>

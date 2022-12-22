@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쪽지시험 풀이</title>
+</head>
+<body>
+  <button id="btnReset">문제제출</button>
+  <input type="text" id="num1"> +
+  <input type="text" id="num2"> =
+  <input type="text" id="num3">
+  <button id="btn">결과확인</button>
+  <script>
+    //btnReset 버튼을 클릭하면 1~10 사이의 난수를 생성하여 num1.value과 num2.value에 입력
+    btnReset.addEventListener("click",function(){
+      num1.value = Math.floor(Math.random()*10)+1;
+      num2.value = Math.floor(Math.random()*10)+1;
+    })
+
+    btn.addEventListener("click",function(ev){
+      //num1 + num2
+
+      //num3 입력값이 없으면 alert(입력) 실행 후 return
+      if(num3.value == ''){
+        alert('입력하세요')
+        return;
+      }
+      
+      let result = parseInt(num1.value) + parseInt(num2.value);
+        if(result == num3.value){
+        alert('정답입니다');
+      } else{
+        alert('틀렸습니다');
+      }
+    })
+  </script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1_2</title>
+  <style>
+    span{
+      margin-bottom: 10px;
+    }
+    #sty{
+      border: 1px solid olive;
+    }
+  </style>
+</head>
+<body>
+  <h3>영화정보</h3>
+  <input id="bt"><button id="btnSelect">조회</button>
+  <div id="sty">
+    <div id="result"></div>
+  </div>
+  <script>
+    btnSelect.addEventListener("click", function(){
+      //infut태그에 값이 없으면 알림창 띄운 후 리턴
+      //1.xhr 객체 생성
+      if(bt.value !== ''){
+      let xhr = new XMLHttpRequest();
+      //2. 콜백함수
+      xhr.onload = function(){callback(xhr)};
+      //3. 요청연결
+      let url = 'https://kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=f5eef3421c602c6cb7ea224104795888&targetDt='+ bt.value
+      xhr.open('get',url);
+      //4.요청전달
+      xhr.send();
+      } else{
+        alert("입력값이 없습니다");
+      }
+    })
+
+    
+    //2번 콜백함수에 대한 이벤트핸들러
+    function callback(xhr){
+      let movies = JSON.parse(xhr.response);
+      let mvlist = movies.boxOfficeResult.dailyBoxOfficeList;
+      
+      // result div 내용 삭제
+      result.innerHTML = '';
+
+      for(let i = 0 ; i < mvlist.length ; i++){
+        let div = `<div>
+          <span class="no">${mvlist[i].rank}</span>
+          <span class="title">${mvlist[i].movieNm}</span>
+          <span class="cd">${mvlist[i].movieCd}</span>
+        </div>`
+        result.innerHTML += div;
+    }
+  }
+  </script>
+</body>
+</html>
