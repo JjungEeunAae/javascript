@@ -55,8 +55,8 @@ list.addEventListener("click",function(ev){
 })
 
 /*문제2 2) 추가 버튼에 이벤트를 지정하여
-클릭하면 입력값을 books 배열에 추가하고 추가 후에는
-입력필드의 입력값을 클리어해주세요. */
+클릭하면 입력값을 books 배열에 추가하고
+추가 후에는 입력필드의 입력값을 클리어해주세요 */
 
 //추가버튼 클릭하면 밑부분에 있는 표에 추가
 btnAdd.addEventListener("click",function(ev){
@@ -79,6 +79,8 @@ btnAdd.addEventListener("click",function(ev){
     //금액계산
     priceTotal();
     //배열의 내용을 태그로 그리고
+
+    //문제2 4) 1번 문제에서 선언한 함수를 호출하여 테이블에 추가하도록 하세요.
     Atype();
 
     //inpet value 값 초기화
@@ -93,13 +95,12 @@ btnAdd.addEventListener("click",function(ev){
   }
   //문제3 1) 가격 총금액을 계산하는 함수를 선언하세요
   function priceTotal(){
-    
-  //문제2 4) 1번 문제에서 선언한 함수를 호출하여 테이블에 추가하도록 하세요.
     let total = 0;
     for(let i = 0 ; i < books.length ; i++){
       total += books[i].price;
     }
     totalPrice.innerHTML = total;
+    console.log(totalPrice.innerHTML);
   }
   
   //문제2 3) 도서번호와 도서명이 입력되지 않았으면 입력하도록 경고창을 띄우세요.
