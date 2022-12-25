@@ -15,30 +15,32 @@
     #btn {
       width : 250px;
     }
-    </style>
-    <script>
-      window.addEventListener("load", function(){
-        btnEvent();
-      });
-      
-      function btnEvent(){
-        btn.addEventListener("click", function(){
-          //코드 작성
-          let select = result.value.split(",");
-          // document.querySelectorAll("input")[0].value = select[0];
-          // document.querySelectorAll("input")[1].value = select[1];
-          // document.querySelectorAll("input")[2].value = select[2];
-          // document.querySelectorAll("input")[3].value = select[3];
-          for(let i = 0; i < select.length; i++) {
-            document.querySelectorAll("input")[i].value = select[i];
-          }
+  </style>
+  <script>
+    window.addEventListener("load", function(){
+      btnEvent();
+    });
+    function btnEvent(){
+      //버튼 이벤트 생성, 버튼을 클릭하면 동작하는 핸들러
+      btn.addEventListener("click", function(){
+      //메모장의 값을 배열로 한 다음,
+      let select = result.value.split(",");
+      // document.querySelectorAll("input")[0].value = select[0];
+      // document.querySelectorAll("input")[1].value = select[1];
+      // document.querySelectorAll("input")[2].value = select[2];
+      // document.querySelectorAll("input")[3].value = select[3];
 
-          // document.querySelectorAll("input").forEach(function(item, index) {
-          //   item.value = select[index];
-          // });
-        });
+      //배열의 길이만큼 반복문을 실행
+      for(let i = 0; i < select.length; i++) {
+        //배열로 끊어둔 메모장의 배열을 반복하는 수만큼 input의 내용에 담는다
+        document.querySelectorAll("input")[i].value = select[i];
       }
-      </script>
+        // document.querySelectorAll("input").forEach(function(item, index) {
+        //   item.value = select[index];
+        // });
+      });
+    }
+  </script>
 </head>
 <body>
   <textarea id="result" rows="3" cols="35">1, 홍길동, hong, 2019/12/01</textarea>

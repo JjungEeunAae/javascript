@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쪽지시험 풀이</title>
+  <style>
+    th{
+      width: 200px;
+      border: 1px solid black;
+    }
+    td{
+      border: 1px solid goldenrod;
+    }
+  </style>
+</head>
+<body>
+  <button id="btnReset">문제제출</button>
+  <input type="text" id="num1" /> +
+  <input type="text" id="num2" /> =
+  <input type="text" id="num3" />
+  <button id="btn">결과확인</button>
+  <table id="result" >
+    <tr>
+      <th>결과</th>
+      <th>결과</th>
+      <th>결과</th>
+    </tr>
+  </table>
+  <script>
+  //문제제출 버튼 이벤트 실행
+  //num1과 num2에 랜덤으로 숫자 생성이 될 수 있도록 설정
+  btnReset.addEventListener("click",function(){
+    //난수생성
+    num1.value = Math.floor(Math.random()*10)+1;
+    num2.value = Math.floor(Math.random()*10)+1;
+  }) 
+  document.getElementById
+  
+  //결과확인 버튼 이벤트 실행
+  btn.addEventListener("click",function(){
+
+    //num3에 값을 입력하지 않았을 때 알림창 띄우기
+    if(!num3.value){
+      alert("값을 입력하세요");
+      return;
+    }
+    
+    //두 입력값의 합과 입력한 결과값이 일치여부 확인
+    //결과확인란 띄우기(정답 or 틀리다)
+    let input = parseInt(num1.value)+parseInt(num2.value);
+    if(input == parseInt(num3.value)){
+      alert("정답입니다");
+      element_plus();
+    }else{
+      alert("틀렸습니다");
+    }
+    empty_value();  
+  });
+  
+  //결과확인 버튼 클릭 후 input에 입력했던 값들 넣기
+  function element_plus(){
+    let trplus = `
+      <tr>
+        <td>${num1.value}</td>
+        <td>${num2.value}</td>
+        <td>${num3.value}</td>
+      <tr>
+    `;
+    result.innerHTML += trplus;
+  }
+
+  //결과확인 후 num1,num2,num3 값지우기
+  function empty_value(){
+    num1.value= '';
+    num2.value= '';
+    num3.value= '';
+  }
+  </script>
+</body>
+</html>
