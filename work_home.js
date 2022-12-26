@@ -9,7 +9,7 @@ let todoList = [
     { content: "test4", complete: false },
 ];
 
-//서버생성
+//서버생성..
 const server = http.createServer((req, res) => {
     const myUrl = new URL("http://127.0.0.1:3000" + req.url);
     //만약 경로이름이 /todolist라면
