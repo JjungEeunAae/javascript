@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2022년12월27일_comments</title>
+  </head>
+  <body>
+    <h3>comments 관리</h3>
+    <div id="commentsList"></div>
+    <from>
+      <input id="id" placeholder="id" />
+      <input id="body" placeholder="body" />
+      <button id="btnAdd" type="button">add comments</button>
+    </from>
+    <script>
+      selectComments();
+      btnAdd.addEventListener("click", insterComments);
+      commentsList.addEventListener("click", deleteComments);
+
+      //Comments 삭제
+      function deleteComments(ev) {
+        let id = ev.target.getAttribute("data-id");
+        let url = "http://localhost:3000/comments/" + id;
+        let xhr = new XMLHttpRequest();
+        //로딩되면 작동하는 핸들러 적는 곳
+        xhr.onload = function () {
+          selectComments();
+        };
+        xhr.open("delete", url);
+        xhr.send();
+      }
+
+      //comments 등록
+      function insterComments() {
+        let url = "http://localhost:3000/comments";
+        //xhr객체생성
+        let xhr = new XMLHttpRequest();
+
+        //등록하고자하는 object
+        let data = { id: parseInt(id.value), body: body.value };
+
+        //콜백함수
+        xhr.onload = function () {
+          selectComments();
+          inputDel();
+          console.log("insterComments 요청완료");
+        };
+        //요청연결
+        xhr.open("post", url);
+        //헤더설정
+        //json형식으로 된 스트링 타입으로 Headers에 보낼게요
+        xhr.setRequestHeader("Content-Type", "application/json");
+        /*요청에 대한 응답을 서버로 전달함,
+          obj형식을 string으로 바꿔주는 방법*/
+        xhr.send(JSON.stringify(data));
+        console.log("insterComments 요청시작");
+      }
+
+      //comments 조회
+      function selectComments() {
+        let url = "http://localhost:3000/comments";
+        //xhr객체선언
+        let xhr = new XMLHttpRequest();
+        //콜백함수
+        xhr.onload = function () {
+          console.log("selectComments 요청완료");
+          /*JSON방식(스트링값)을 obj(객체타입)으로 바꿔주는 방법
+          (id 값을 읽어내서 div에 넣어주기 위해!!)*/
+          const comments = JSON.parse(xhr.responseText);
+          commentsList.innerHTML = "";
+          for (let i = 0; i < comments.length; i++) {
+            commentsList.innerHTML += `
+            <div>
+              ID : ${comments[i].id}<br>
+              BODY : ${comments[i].body}
+              <button data-id="${comments[i].id}">삭제</button>
+            </div>`;
+          }
+        };
+        //연결요청
+        xhr.open("get", url);
+        //서버로 요청전달
+        xhr.send();
+
+        console.log("selectComments 요청시작");
+      }
+
+      function inputDel() {
+        id.value = "";
+        body.value = "";
+      }
+    </script>
+  </body>
+</html>
