@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>restparamter.html</title>
+  </head>
+  <body>
+    <h3>rest parmter test</h3>
+    <script>
+      function sum(x1, x2) {
+        let y = x1 + x2;
+        return y;
+      }
+      function sumrest(...arr) {
+        let total = 0;
+        for (let i = 0; i < arr.length; i++) {
+          total += arr[i];
+        }
+        return total;
+      }
+      console.log(sumrest(5, 7));
+      console.log(sumrest(5, 3, 4, 5, 6));
+      console.log(sumrest(5, 6, 23, 62, 34, 234));
+
+      const num = [1, 4, 2, 3, 45, 5];
+      // ... 은 배열 하나하나 풀어준다 예시)[num[0],num[1],num[3]]
+      console.log(sumrest(...num));
+    </script>
+  </body>
+</html>
