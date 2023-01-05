@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>바나나</div>
+    <div>사과</div>
+    <div>포도</div>
+    <div>키위</div>
+    <div>수박</div>
+    <script>
+      let div = document.querySelectorAll("div");
+      for (const el of div) {
+        //console.log(el.innerText); //뒤에는 배열, 앞에는 변수를 담아주면 됨
+      }
+
+      for (i in div) {
+        //console.log(div[i].innerText); //앞에는 인덱스, 뒤에는 배열
+      }
+
+      let emps = [
+        { name: "jung", age: 20 },
+        { name: "hong", age: 25 },
+        { name: "choi", age: 28 },
+      ];
+
+      for (const emp of emps) {
+        //console.log(emp.name); //배열의 요소를 찾는 방법
+      }
+
+      //"user-name"->속성=key : "kim"=>value(값)
+      let user = { "user-name": "kim", age: 20, addr: "대구", hobby: "게임" };
+      //console.log(user["user-name"]);
+      for (let key in user) {
+        console.log(key, user[key]); //key와 key에 대한 값을 확인할 수 있는 방법
+      }
+    </script>
+  </body>
+</html>
