@@ -1,0 +1,24 @@
+<!-- @format -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let input = prompt().split(" ");
+      let [a, b] = input;
+
+      console.log(`덧셈: ${a * 1 + b * 1}`);
+      console.log(`뺄셈: ${a - b}`);
+      console.log(`곱셈: ${a * b}`);
+      console.log("소수점있는 타입: " + a / b);
+      console.log(`소수점없는 타입: ${parseInt(a / b)}`); //소수점을 정수로 반환
+      console.log(`나눗셈 나머지: ${a % b}`);
+    </script>
+  </body>
+</html>
